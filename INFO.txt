@@ -1,0 +1,190 @@
+  Selfplay done.
+[Step 4] Shuffling data -> g:\KataGomo\training\shuffleddata\iter-3 ...
+Beginning: Finding files
+Finished: Finding files in 1.92024564743042 seconds
+Total number of files: 6920
+Total number of files with unknown row count: 6920
+Excluded count: 0
+Excluded count due to looking like temp file: 0
+Excluded count due to cmdline excludes file: 0
+GC collect
+Beginning: Sorting
+Finished: Sorting in 0.001604318618774414 seconds
+Beginning: Computing rows for unsummarized files
+Finished: Computing rows for unsummarized files in 80.81653499603271 seconds
+Beginning: Processing found files
+Finished: Processing found files in 0.005488872528076172 seconds
+Total rows found: 13837822 (691137 usable)
+Desired num rows: 138171 / 13837822
+Beginning: Computing desired rows
+Using: g:\KataGomo\training\data\selfplay\random\tdata\326DAE4703C0617C.npz (13835822-13837822) (2000/138171 desired rows)
+Using: g:\KataGomo\training\data\selfplay\random\tdata\75D40DF8EDF031B6.npz (13697822-13699822) (140000/138171 desired rows)
+Finished: Computing desired rows in 0.0005056858062744141 seconds
+Finally, using: (13697822-13837822) (140000/138171 desired rows)
+GC collect
+Writing 2 output files with 140000 kept / 138171 desired rows
+Due to only_include_md5, filtering down to 67/70 files
+Grouping 67 input files into 2 sharding groups
+Beginning: Sharding
+Finished: Sharding in 3.6191606521606445 seconds
+Beginning: Merging
+Finished: Merging in 2.775942802429199 seconds
+Number of rows by output file:
+[('g:\\KataGomo\\training\\shuffleddata\\iter-3\\train\\data0.npz', 66944), ('g:\\KataGomo\\training\\shuffleddata\\iter-3\\train\\data1.npz', 66944)]
+Cleaning up tmp dir: g:\KataGomo\training\tmp\train\tmp.shuf0
+Cleaning up tmp dir: g:\KataGomo\training\tmp\train\tmp.shuf1
+Beginning: Finding files
+Finished: Finding files in 0.3770909309387207 seconds
+Total number of files: 6920
+Total number of files with unknown row count: 6920
+Excluded count: 0
+Excluded count due to looking like temp file: 0
+Excluded count due to cmdline excludes file: 0
+GC collect
+Beginning: Sorting
+Finished: Sorting in 0.0012218952178955078 seconds
+Beginning: Computing rows for unsummarized files
+Finished: Computing rows for unsummarized files in 3.121385097503662 seconds
+Beginning: Processing found files
+Finished: Processing found files in 0.0050296783447265625 seconds
+Total rows found: 13837822 (691137 usable)
+Desired num rows: 138171 / 13837822
+Beginning: Computing desired rows
+Using: g:\KataGomo\training\data\selfplay\random\tdata\326DAE4703C0617C.npz (13835822-13837822) (2000/138171 desired rows)
+Using: g:\KataGomo\training\data\selfplay\random\tdata\75D40DF8EDF031B6.npz (13697822-13699822) (140000/138171 desired rows)
+Finished: Computing desired rows in 0.0 seconds
+Finally, using: (13697822-13837822) (140000/138171 desired rows)
+GC collect
+Writing 2 output files with 140000 kept / 138171 desired rows
+Due to only_include_md5, filtering down to 3/70 files
+Grouping 3 input files into 1 sharding groups
+Beginning: Sharding
+Finished: Sharding in 0.4620838165283203 seconds
+Beginning: Merging
+Finished: Merging in 0.12324142456054688 seconds
+Number of rows by output file:
+[('g:\\KataGomo\\training\\shuffleddata\\iter-3\\val\\data0.npz', 2944), ('g:\\KataGomo\\training\\shuffleddata\\iter-3\\val\\data1.npz', 2944)]
+Cleaning up tmp dir: g:\KataGomo\training\tmp\val\tmp.shuf0
+Cleaning up tmp dir: g:\KataGomo\training\tmp\val\tmp.shuf1
+  Shuffle done.
+[Step 5] Training (150 epochs, batch=128)...
+['G:\\KataGomo\\python\\train.py', '-traindir', 'g:\\KataGomo\\training\\train\\iterative-run', '-latestdatadir', 'g:\\KataGomo\\training\\shuffleddata\\iter-3', '-exportdir', 'g:\\KataGomo\\training\\torchmodels_toexport', '-exportprefix', 'iterative-run', '-pos-len', '10', '-batch-size', '128', '-max-epochs-this-instance', '150', '-no-compile', '-model-kind', 'b6c96']
+Using GPU device: NVIDIA GeForce RTX 3050
+Seeding torch with 53158768780432442
+No preexisting checkpoint found at: g:\KataGomo\training\train\iterative-run\checkpoint.ckpt
+Initializing new model!
+{'version': 15, 'norm_kind': 'fixup', 'bnorm_epsilon': 0.0001, 'bnorm_running_avg_momentum': 0.001, 'initial_conv_1x1': False, 'trunk_num_channels': 96, 'mid_num_channels': 96, 'gpool_num_channels': 32, 'gamma_weight_decay_center_1': True, 'block_kind': [['rconv1', 'regular'], ['rconv2', 'regular'], ['rconv3', 'regulargpool'], ['rconv4', 'regular'], ['rconv5', 'regulargpool'], ['rconv6', 'regular']], 'p1_num_channels': 32, 'g1_num_channels': 32, 'v1_num_channels': 32, 'sbv2_num_channels': 48, 'num_scorebeliefs': 4, 'v2_size': 64}
+Model norm normal baseline computed: 15.794426918029785
+Model norm input baseline computed: 13.860228538513184
+swa_period_samples 500000
+swa_scale 8
+lookahead_alpha 0.5
+lookahead_k 6
+soft_policy_weight_scale 8.0
+disable_optimistic_policy False
+meta_kata_only_soft_policy False
+value_loss_scale 0.6
+td_value_loss_scales [0.6, 0.6, 0.6]
+seki_loss_scale 1.0
+variance_time_loss_scale 1.0
+main_loss_scale None
+intermediate_loss_scale None
+head_lr_factor 0.5
+noreg_lr_factor 1.0
+muon_adam_lr_factor 1.0
+Model norm normal baseline: 15.794426918029785
+Model norm input baseline: 13.860228538513184
+Parameters in model:
+conv_spatial.weight, [96, 22, 3, 3], 19008 params
+linear_global.weight, [96, 19], 1824 params
+blocks.0.normactconv1.norm.beta, [1, 96, 1, 1], 96 params
+blocks.0.normactconv1.conv.weight, [96, 96, 3, 3], 82944 params
+blocks.0.normactconv2.norm.beta, [1, 96, 1, 1], 96 params
+blocks.0.normactconv2.norm.gamma, [1, 96, 1, 1], 96 params
+blocks.0.normactconv2.conv.weight, [96, 96, 3, 3], 82944 params
+blocks.1.normactconv1.norm.beta, [1, 96, 1, 1], 96 params
+blocks.1.normactconv1.conv.weight, [96, 96, 3, 3], 82944 params
+blocks.1.normactconv2.norm.beta, [1, 96, 1, 1], 96 params
+blocks.1.normactconv2.norm.gamma, [1, 96, 1, 1], 96 params
+blocks.1.normactconv2.conv.weight, [96, 96, 3, 3], 82944 params
+blocks.2.normactconv1.norm.beta, [1, 96, 1, 1], 96 params
+blocks.2.normactconv1.convpool.conv1r.weight, [64, 96, 3, 3], 55296 params
+blocks.2.normactconv1.convpool.conv1g.weight, [32, 96, 3, 3], 27648 params
+blocks.2.normactconv1.convpool.normg.beta, [1, 32, 1, 1], 32 params
+blocks.2.normactconv1.convpool.linear_g.weight, [64, 96], 6144 params
+blocks.2.normactconv2.norm.beta, [1, 64, 1, 1], 64 params
+blocks.2.normactconv2.norm.gamma, [1, 64, 1, 1], 64 params
+blocks.2.normactconv2.conv.weight, [96, 64, 3, 3], 55296 params
+blocks.3.normactconv1.norm.beta, [1, 96, 1, 1], 96 params
+blocks.3.normactconv1.conv.weight, [96, 96, 3, 3], 82944 params
+blocks.3.normactconv2.norm.beta, [1, 96, 1, 1], 96 params
+blocks.3.normactconv2.norm.gamma, [1, 96, 1, 1], 96 params
+blocks.3.normactconv2.conv.weight, [96, 96, 3, 3], 82944 params
+blocks.4.normactconv1.norm.beta, [1, 96, 1, 1], 96 params
+blocks.4.normactconv1.convpool.conv1r.weight, [64, 96, 3, 3], 55296 params
+blocks.4.normactconv1.convpool.conv1g.weight, [32, 96, 3, 3], 27648 params
+blocks.4.normactconv1.convpool.normg.beta, [1, 32, 1, 1], 32 params
+blocks.4.normactconv1.convpool.linear_g.weight, [64, 96], 6144 params
+blocks.4.normactconv2.norm.beta, [1, 64, 1, 1], 64 params
+blocks.4.normactconv2.norm.gamma, [1, 64, 1, 1], 64 params
+blocks.4.normactconv2.conv.weight, [96, 64, 3, 3], 55296 params
+blocks.5.normactconv1.norm.beta, [1, 96, 1, 1], 96 params
+blocks.5.normactconv1.conv.weight, [96, 96, 3, 3], 82944 params
+blocks.5.normactconv2.norm.beta, [1, 96, 1, 1], 96 params
+blocks.5.normactconv2.norm.gamma, [1, 96, 1, 1], 96 params
+blocks.5.normactconv2.conv.weight, [96, 96, 3, 3], 82944 params
+norm_trunkfinal.beta, [1, 96, 1, 1], 96 params
+policy_head.conv1p.weight, [32, 96, 1, 1], 3072 params
+policy_head.conv1g.weight, [32, 96, 1, 1], 3072 params
+policy_head.biasg.beta, [1, 32, 1, 1], 32 params
+policy_head.linear_g.weight, [32, 96], 3072 params
+policy_head.linear_pass.weight, [32, 96], 3072 params
+policy_head.linear_pass.bias, [32], 32 params
+policy_head.linear_pass2.weight, [6, 32], 192 params
+policy_head.bias2.beta, [1, 32, 1, 1], 32 params
+policy_head.conv2p.weight, [6, 32, 1, 1], 192 params
+value_head.conv1.weight, [32, 96, 1, 1], 3072 params
+value_head.bias1.beta, [1, 32, 1, 1], 32 params
+value_head.linear2.weight, [64, 96], 6144 params
+value_head.linear2.bias, [64], 64 params
+value_head.linear_valuehead.weight, [3, 64], 192 params
+value_head.linear_valuehead.bias, [3], 3 params
+value_head.linear_miscvaluehead.weight, [10, 64], 640 params
+value_head.linear_miscvaluehead.bias, [10], 10 params
+value_head.linear_moremiscvaluehead.weight, [8, 64], 512 params
+value_head.linear_moremiscvaluehead.bias, [8], 8 params
+value_head.conv_ownership.weight, [1, 32, 1, 1], 32 params
+value_head.conv_scoring.weight, [1, 32, 1, 1], 32 params
+value_head.conv_futurepos.weight, [2, 96, 1, 1], 192 params
+value_head.conv_seki.weight, [4, 96, 1, 1], 384 params
+value_head.linear_s2.weight, [48, 96], 4608 params
+value_head.linear_s2.bias, [48], 48 params
+value_head.linear_s2off.weight, [48, 1], 48 params
+value_head.linear_s2par.weight, [48, 1], 48 params
+value_head.linear_s3.weight, [4, 48], 192 params
+value_head.linear_s3.bias, [4], 4 params
+value_head.linear_smix.weight, [4, 96], 384 params
+value_head.linear_smix.bias, [4], 4 params
+Total num params: 1004333
+Total trainable params: 1004333
+Optimizer: SGD
+Using lookahead optimizer 0.5 6
+Training in FP32.
+torch.compile disabled by -no-compile flag
+float32 matmul precision: default
+Updated training data: G:\KataGomo\training\shuffleddata\iter-3\val
+Train steps since last reload: 0 -> 0
+Traceback (most recent call last):
+  File "G:\KataGomo\python\train.py", line 1737, in <module>
+    main(rank, world_size, args, multi_gpu_device_ids, readpipes, writepipes, barrier)
+  File "G:\KataGomo\python\train.py", line 1255, in main
+    maybe_reload_training_data()
+  File "G:\KataGomo\python\train.py", line 1075, in maybe_reload_training_data
+    train_files = [os.path.join(tdatadir,fname) for fname in os.listdir(tdatadir) if fname.endswith(".npz")]
+FileNotFoundError: [WinError 3] 系统找不到指定的路径。: 'G:\\KataGomo\\training\\shuffleddata\\iter-3\\val\\train'
+Exception: G:\KataGomo\training\scripts\01.ps1:167:28
+Line |
+ 167 |  if ($LASTEXITCODE -ne 0) { throw "Training failed" }
+     |                             ~~~~~~~~~~~~~~~~~~~~~~~
+     | Training failed
+(venv) PS G:\KataGomo>
